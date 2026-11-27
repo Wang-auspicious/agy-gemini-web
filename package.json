@@ -1,0 +1,22 @@
+{
+  "name": "agy-gemini-web",
+  "version": "0.1.0",
+  "description": "Native Antigravity plugin for delegating tasks, multi-account routing, and closed-loop acceptance verification on Gemini Web (gemini.google.com) inside the built-in right-hand browser.",
+  "license": "MIT",
+  "author": "Wang-auspicious",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wang-auspicious/agy-gemini-web.git"
+  },
+  "bin": {
+    "agy-gemini-web": "./tools/gemini-web/cli.js"
+  },
+  "scripts": {
+    "test": "node --test test/run-tests.js",
+    "install-plugin": "node ./install.js --copy",
+    "status": "node ./install.js --status"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

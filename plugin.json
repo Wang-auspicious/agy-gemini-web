@@ -1,0 +1,22 @@
+{
+  "name": "agy-gemini-web",
+  "displayName": "AGY Gemini Web — 右侧浏览器 Gemini 网页版多账号协作与验收套件",
+  "version": "0.1.0",
+  "description": "Use Gemini Web (gemini.google.com) directly inside Antigravity's built-in right-hand browser with multi-account routing (/u/N & authuser), Deep Research/Canvas/Gems dispatch, autonomous agent self-invocation, and closed-loop browser-use acceptance verification.",
+  "logo": "assets/logo.svg",
+  "author": {
+    "name": "Wang-auspicious",
+    "url": "https://github.com/Wang-auspicious"
+  },
+  "homepage": "https://github.com/Wang-auspicious/agy-gemini-web",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wang-auspicious/agy-gemini-web"
+  },
+  "disabled": false,
+  "suggestedPrompts": [
+    "/gemini-web 用默认账号在右侧浏览器向 Gemini 网页版发起一次任务并验收结果",
+    "配置我的 Gemini Web 多账号映射（例如 personal / work 对应不同 Google 账号）",
+    "用右侧浏览器的 Gemini 网页版做一次 Deep Research 或方案二审，并提取验收后的结论"
+  ]
+}
