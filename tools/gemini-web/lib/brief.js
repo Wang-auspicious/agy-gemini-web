@@ -45,17 +45,19 @@ function buildDispatchBrief({
     '## 1. Account & Sign-In Gate',
     `- Target URL: ${target.url}`,
     `- Account verification: ${target.verifyHint}`,
+    '- Preserve persistent login state: NEVER sign out, clear cookies, or navigate away to `accounts.google.com` to switch accounts when `/u/N` works directly.',
     '- If redirected to `accounts.google.com` or shown a Google sign-in wall, STOP immediately and report `BLOCKED / AUTH_REQUIRED` so the user can sign in directly inside the right-hand browser pane. Never attempt to automate or bypass Google login.',
     '- If a DIFFERENT Google account is active than requested (wrong email or unexpected `/u/N` redirect), STOP and report the mismatch before typing anything.',
     '',
     '## 2. Chat, Model & Mode Setup',
     newChat
-      ? '- Start a fresh chat ("New chat") before sending.'
+      ? '- Start a fresh chat (`button[aria-label="New Chat"]`, using `{ force: true }` if Material ripple intercepts pointer events) before sending.'
       : '- Reuse the opened chat if continuing this task; otherwise start from a clean prompt composer.',
     effectiveModel !== 'auto'
-      ? `- Select model tier **${effectiveModel}** in the Gemini model picker if available (report actual active model if the account does not offer ${effectiveModel}).`
-      : '- Keep the current default model tier and report which model label is active.',
+      ? `- Select model tier **${effectiveModel}** in the Gemini mode picker (\`button[aria-label^="Open mode picker"]\` / \`打开模式选择器\`) if available (report actual active model if the account does not offer ${effectiveModel}).`
+      : '- Keep or select **Auto** in the mode picker (if a heavy tier stalls >90s with empty output on a normal prompt, stop and retry in Auto) and report which model label is active.',
     `- Mode (${effectiveMode}): ${MODE_INSTRUCTIONS[effectiveMode] || MODE_INSTRUCTIONS.default}`,
+    '- Interaction tip: fill the composer via `rich-textarea div.ql-editor[contenteditable="true"]` (`.fill(...)` directly) and submit via `button[aria-label="Send message"]` (`{ force: true }` if needed) or Enter. For Canvas / Deep research, open `button[aria-label="Upload & tools"]` -> `More tools`.',
   ];
 
   if (cleanUploads.length > 0) {
